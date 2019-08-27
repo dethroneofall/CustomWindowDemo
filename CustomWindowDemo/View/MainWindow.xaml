@@ -1,0 +1,36 @@
+﻿<control:CustomWindow x:Class="CustomWindowDemo.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        xmlns:h="http://helix-toolkit.org/wpf"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:vm="clr-namespace:CustomWindowDemo.ViewModel"
+        xmlns:v="clr-namespace:CustomWindowDemo.View"
+        MinWidth="700"
+        MinHeight="500"
+        xmlns:control="clr-namespace:MyCustomControls;assembly=MyCustomControls"
+        Height="350" Width="525">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ItemsControl x:Name="myItems" Grid.Row="0" Grid.Column="0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Name="button" Click="Button_Click" Content="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <system:String>Task 3</system:String>
+            <system:String>Task 4</system:String>
+            <system:String>Task 5</system:String>
+        </ItemsControl>
+        <TextBlock Name="text" Grid.Column="1"  FontSize="20" Text="Selected Task" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Frame Name="frame" NavigationUIVisibility="Hidden" Grid.Column="1"/>
+    </Grid>
+</control:CustomWindow>
